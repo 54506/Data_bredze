@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>
+    DataBridge Solutions | Delivering Reliable Data &amp; XML Solutions
+  </title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#136dec",
+            "accent-cyan": "#22d3ee",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101822",
+          },
+          fontFamily: {
+            display: ["Inter"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .hero-overlay-gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(16, 24, 34, 0.85) 0%,
+          rgba(16, 24, 34, 0.4) 40%,
+          rgba(16, 24, 34, 0.6) 70%,
+          rgba(16, 24, 34, 0.95) 100%
+        );
+      }
+      .carousel-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        z-index: 0;
+        will-change: opacity;
+        overflow: hidden;
+      }
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        will-change: transform;
+        filter: brightness(0.8) contrast(1.1);
+      }
+      .carousel-slide:nth-child(1) {
+        animation: crossFade 32s infinite;
+        animation-delay: 0s;
+      }
+      .carousel-slide:nth-child(2) {
+        animation: crossFade 32s infinite;
+        animation-delay: 8s;
+      }
+      .carousel-slide:nth-child(3) {
+        animation: crossFade 32s infinite;
+        animation-delay: 16s;
+      }
+      .carousel-slide:nth-child(4) {
+        animation: crossFade 32s infinite;
+        animation-delay: 24s;
+      }
+      .carousel-slide:nth-child(1) img {
+        animation: kenBurns 32s infinite;
+        animation-delay: 0s;
+      }
+      .carousel-slide:nth-child(2) img {
+        animation: kenBurns 32s infinite;
+        animation-delay: 8s;
+      }
+      .carousel-slide:nth-child(3) img {
+        animation: kenBurns 32s infinite;
+        animation-delay: 16s;
+      }
+      .carousel-slide:nth-child(4) img {
+        animation: kenBurns 32s infinite;
+        animation-delay: 24s;
+      }
+      @keyframes crossFade {
+        0% {
+          opacity: 0;
+          z-index: 1;
+        }
+        5% {
+          opacity: 1;
+          z-index: 2;
+        }
+        25% {
+          opacity: 1;
+          z-index: 2;
+        }
+        35% {
+          opacity: 0;
+          z-index: 1;
+        }
+        100% {
+          opacity: 0;
+          z-index: 0;
+        }
+      }
+      @keyframes kenBurns {
+        0% {
+          transform: scale(1.05);
+        }
+        35% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      @keyframes lightSweep {
+        0% {
+          transform: translateX(-200%) skewX(-25deg);
+        }
+        100% {
+          transform: translateX(200%) skewX(-25deg);
+        }
+      }
+      @keyframes buttonSweep {
+        0% {
+          left: -100%;
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        25% {
+          left: 150%;
+          opacity: 1;
+        }
+        30% {
+          left: 150%;
+          opacity: 0;
+        }
+        100% {
+          left: 150%;
+          opacity: 0;
+        }
+      }
+      @keyframes iconPulseGlow {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 0px #22d3ee);
+        }
+        50% {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.8));
+        }
+        100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 0px #22d3ee);
+        }
+      }
+      .cta-sweep {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .cta-sweep::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 60px;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(34, 211, 238, 0.4),
+          rgba(255, 255, 255, 0.6),
+          rgba(34, 211, 238, 0.4),
+          transparent
+        );
+        transform: skewX(-25deg);
+        animation: buttonSweep 6s infinite ease-in-out;
+        pointer-events: none;
+      }
+      .cta-sweep:hover::after {
+        animation: buttonSweep 1.2s infinite ease-in-out;
+      }
+      .service-card {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        perspective: 1000px;
+        background: #101822;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.4s ease, box-shadow 0.4s ease;
+      }
+      .service-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .service-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .service-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .service-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      .service-card:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .service-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        border-color: #22d3ee;
+        box-shadow: 0 0 30px rgba(34, 211, 238, 0.25),
+          inset 0 0 10px rgba(34, 211, 238, 0.1);
+        z-index: 10;
+      }
+      .service-card .sweep-element {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(34, 211, 238, 0.08),
+          transparent
+        );
+        transform: translateX(-200%) skewX(-25deg);
+        pointer-events: none;
+      }
+      .service-card:hover .sweep-element {
+        animation: lightSweep 2s ease-in-out infinite;
+      }
+      .service-card:hover .service-icon {
+        animation: iconPulseGlow 2s infinite ease-in-out;
+        color: #22d3ee;
+        background-color: rgba(34, 211, 238, 0.15);
+        border: 1px solid rgba(34, 211, 238, 0.3);
+      }
+      .animate-fade-in-down {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+      .animate-fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+      .animate-fade-in-up-delay {
+        opacity: 0;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+      }
+      .animate-pop-in {
+        opacity: 0;
+        animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1s
+          forwards;
+      }
+      .dot-indicator {
+        animation: dotHighlight 32s infinite;
+      }
+      .dot-indicator:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .dot-indicator:nth-child(2) {
+        animation-delay: 8s;
+      }
+      .dot-indicator:nth-child(3) {
+        animation-delay: 16s;
+      }
+      .dot-indicator:nth-child(4) {
+        animation-delay: 24s;
+      }
+      @keyframes dotHighlight {
+        0% {
+          @apply bg-accent-cyan w-8 opacity-100;
+          box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+        }
+        25% {
+          @apply bg-accent-cyan w-8 opacity-100;
+          box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+        }
+        30% {
+          @apply bg-white/20 w-2.5 opacity-40;
+          box-shadow: none;
+        }
+        100% {
+          @apply bg-white/20 w-2.5 opacity-40;
+          box-shadow: none;
+        }
+      }
+    </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-100 transition-colors duration-500 min-h-screen flex flex-col selection:bg-accent-cyan selection:text-background-dark">
+  <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <header
+      class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/5 transition-colors duration-500">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-4">
+        <!-- Logo section -->
+        <div class="flex items-center gap-4 group cursor-pointer shrink-0">
+          <div class="relative flex items-center justify-center size-11">
+            <svg
+              class="w-full h-full text-primary dark:text-accent-cyan transition-transform duration-500 group-hover:scale-110"
+              fill="none" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34" stroke="currentColor" stroke-linecap="round"
+                stroke-width="3.5" />
+              <path d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34" stroke="url(#logo-grad)" stroke-linecap="round"
+                stroke-width="3.5" opacity="0.85" />
+              <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+              <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+              <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+              <defs>
+                <linearGradient id="logo-grad" x1="22" y1="10" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2E7CFF" />
+                  <stop offset="1" stop-color="#00F0FF" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <div class="flex flex-col leading-none">
+            <span class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight">
+              DataBridge
+            </span>
+            <span class="text-[10px] font-bold text-primary dark:text-accent-cyan tracking-[0.35em] uppercase mt-1">
+              Solutions
+            </span>
+          </div>
+        </div>
+        <!-- Logo end here -->
+
+        <!-- Nav Bar section -->
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="#">Home</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'about' %}">About Us</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'services' %}">Services</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'industries' %}">Industries</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'career' %}">Careers</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'contact' %}">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4 shrink-0">
+          <!-- 🌙 Dark Mode Toggle Button -->
+          <button onclick="toggleDarkMode()"
+            class="h-10 w-10 flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            title="Toggle Dark Mode">
+            🌙
+          </button>
+          <a href="{%url 'contact' %}"
+            class="hidden sm:flex items-center justify-center cta-sweep bg-primary hover:bg-primary/90 text-white text-sm font-bold h-11 px-6 rounded-lg transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95">
+            Get a Quote
+          </a>
+          <button id="mobile-menu-btn"
+            class="lg:hidden p-2 text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            onclick="toggleMobileMenu()">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- Hero Section With Crousel -->
+      {% load static %}
+
+      <section class="relative min-h-[650px] lg:min-h-[90vh] w-full overflow-hidden flex items-center">
+          <div class="absolute inset-0">
+          <div class="carousel-slide"><img src="{% static 'images/g1.jpeg' %}" /></div>
+          <div class="carousel-slide"><img src="{% static 'images/g1.jpeg' %}" /></div>
+          <div class="carousel-slide"><img src="{% static 'images/g2.jpeg' %}" /></div>
+          <div class="carousel-slide"><img src="{% static 'images/g3.jpeg' %}" /></div>
+          <div class="carousel-slide"><img src="{% static 'images/g5.jpeg' %}" /></div>
+    </div>
+        <div class="absolute inset-0 z-10 hero-overlay-gradient"></div>
+        <div
+          class="relative z-20 w-full max-w-[1280px] mx-auto px-6 md:px-10 py-20 lg:py-32 flex flex-col items-center justify-center text-center">
+          <div class="flex flex-col gap-6 md:gap-8 max-w-full lg:max-w-4xl">
+            <span
+              class="text-accent-cyan font-black tracking-[0.3em] uppercase text-xs sm:text-sm drop-shadow-[0_0_10px_rgba(34,211,238,0.5)] animate-fade-in-down">Innovation
+              in Data Processing</span>
+            <h1
+              class="text-white text-2xl sm:text-2xl md:text-2xl lg:text-4xl font-black leading-[1.1] tracking-tight drop-shadow-2xl animate-fade-in-up">
+              Delivering Reliable Data &amp; XML Solutions for
+              <span class="text-accent-cyan">Growing</span> Businesses
+            </h1>
+            <p
+              class="text-gray-200 text-base md:text-xl lg:text-2xl font-medium leading-relaxed max-w-2xl lg:max-w-3xl mx-auto drop-shadow-lg animate-fade-in-up-delay">
+              Professional service-based IT company specializing in data
+              processing, XML services, and IT-enabled solutions.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-5 md:gap-8 justify-center items-center mt-10 lg:mt-12 animate-pop-in">
+              <button onclick="toggleCallbackModal()"
+                class="flex items-center justify-center cta-sweep w-full sm:w-auto bg-primary hover:bg-blue-600 hover:scale-[1.05] active:scale-95 text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl shadow-2xl shadow-primary/40 transition-all border border-primary/20">
+                Request Callback
+              </button>
+              <a href="{%  url 'contact' %}">
+                <button
+                  class="cta-sweep w-full sm:w-auto bg-white/5 backdrop-blur-md hover:bg-white hover:text-primary text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl border border-white/20 hover:border-white transition-all">
+                  Contact Us
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 bg-black/50 backdrop-blur-2xl px-6 py-4 rounded-full border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+          <div class="dot-indicator w-2.5 h-2.5 rounded-full transition-all duration-1000"></div>
+          <div class="dot-indicator w-2.5 h-2.5 rounded-full transition-all duration-1000"></div>
+          <div class="dot-indicator w-2.5 h-2.5 rounded-full transition-all duration-1000"></div>
+          <div class="dot-indicator w-2.5 h-2.5 rounded-full transition-all duration-1000"></div>
+        </div>
+      </section>
+      <section
+        class="bg-white dark:bg-[#0c121b] border-y border-gray-100 dark:border-white/5 relative z-10 transition-colors duration-500">
+        <div class="max-w-[1280px] mx-auto px-6 md:px-10 py-16 md:py-20">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            <div class="flex flex-col gap-2 text-center lg:text-left group">
+              <p
+                class="text-primary dark:text-accent-cyan text-4xl md:text-5xl font-black group-hover:scale-110 transition-transform duration-300">
+                15+
+              </p>
+              <p class="text-[#617289] dark:text-gray-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                Years Experience
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 text-center lg:text-left group">
+              <p
+                class="text-primary dark:text-accent-cyan text-4xl md:text-5xl font-black group-hover:scale-110 transition-transform duration-300">
+                99.9%
+              </p>
+              <p class="text-[#617289] dark:text-gray-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                Accuracy Rate
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 text-center lg:text-left group">
+              <p
+                class="text-primary dark:text-accent-cyan text-4xl md:text-5xl font-black group-hover:scale-110 transition-transform duration-300">
+                ISO
+              </p>
+              <p class="text-[#617289] dark:text-gray-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                Certified Standards
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 text-center lg:text-left group">
+              <p
+                class="text-primary dark:text-accent-cyan text-4xl md:text-5xl font-black group-hover:scale-110 transition-transform duration-300">
+                24/7
+              </p>
+              <p class="text-[#617289] dark:text-gray-400 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                Global Support
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- core services section -->
+      <section class="max-w-[1280px] mx-auto px-6 md:px-10 py-24 md:py-32 overflow-hidden">
+        <div class="flex flex-col gap-5 mb-20 text-center lg:text-left">
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight text-[#111418] dark:text-white">
+            Our Core Services
+          </h2>
+          <p class="text-[#617289] dark:text-gray-400 max-w-2xl text-lg md:text-xl font-medium">
+            Tailored technical and back-office solutions to help your business
+            scale with precision.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div
+            class="service-card relative overflow-hidden flex flex-col gap-6 rounded-2xl p-8 transition-all duration-500 cursor-pointer group">
+            <div class="sweep-element"></div>
+            <div
+              class="service-icon size-14 bg-primary/10 dark:bg-white/5 rounded-xl flex items-center justify-center text-primary dark:text-gray-300 transition-all duration-300 border border-transparent">
+              <span class="material-symbols-outlined text-3xl">code</span>
+            </div>
+            <div class="flex flex-col gap-3 relative z-10">
+              <h3 class="text-white text-xl font-bold group-hover:text-accent-cyan transition-colors">
+                XML Conversion
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                Structural conversion of complex data into standardized XML
+                formats with peak efficiency.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-card relative overflow-hidden flex flex-col gap-6 rounded-2xl p-8 transition-all duration-500 cursor-pointer group">
+            <div class="sweep-element"></div>
+            <div
+              class="service-icon size-14 bg-primary/10 dark:bg-white/5 rounded-xl flex items-center justify-center text-primary dark:text-gray-300 transition-all duration-300 border border-transparent">
+              <span class="material-symbols-outlined text-3xl">keyboard</span>
+            </div>
+            <div class="flex flex-col gap-3 relative z-10">
+              <h3 class="text-white text-xl font-bold group-hover:text-accent-cyan transition-colors">
+                Data Management
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                High-volume data entry and lifecycle management with focus on
+                integrity and security.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-card relative overflow-hidden flex flex-col gap-6 rounded-2xl p-8 transition-all duration-500 cursor-pointer group">
+            <div class="sweep-element"></div>
+            <div
+              class="service-icon size-14 bg-primary/10 dark:bg-white/5 rounded-xl flex items-center justify-center text-primary dark:text-gray-300 transition-all duration-300 border border-transparent">
+              <span class="material-symbols-outlined text-3xl">scanner</span>
+            </div>
+            <div class="flex flex-col gap-3 relative z-10">
+              <h3 class="text-white text-xl font-bold group-hover:text-accent-cyan transition-colors">
+                Digitization
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                Transforming physical archives into high-fidelity searchable
+                digital assets.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-card relative overflow-hidden flex flex-col gap-6 rounded-2xl p-8 transition-all duration-500 cursor-pointer group">
+            <div class="sweep-element"></div>
+            <div
+              class="service-icon size-14 bg-primary/10 dark:bg-white/5 rounded-xl flex items-center justify-center text-primary dark:text-gray-300 transition-all duration-300 border border-transparent">
+              <span class="material-symbols-outlined text-3xl">rule</span>
+            </div>
+            <div class="flex flex-col gap-3 relative z-10">
+              <h3 class="text-white text-xl font-bold group-hover:text-accent-cyan transition-colors">
+                Quality Check
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                Rigorous multi-layer auditing to ensure the highest industry
+                standards for your data.
+              </p>
+            </div>
+          </div>
+          <div
+            class="service-card relative overflow-hidden flex flex-col gap-6 rounded-2xl p-8 transition-all duration-500 cursor-pointer group">
+            <div class="sweep-element"></div>
+            <div
+              class="service-icon size-14 bg-primary/10 dark:bg-white/5 rounded-xl flex items-center justify-center text-primary dark:text-gray-300 transition-all duration-300 border border-transparent">
+              <span class="material-symbols-outlined text-3xl">support_agent</span>
+            </div>
+            <div class="flex flex-col gap-3 relative z-10">
+              <h3 class="text-white text-xl font-bold group-hover:text-accent-cyan transition-colors">
+                BPO Support
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed font-medium">
+                End-to-end technical and operational support for streamlined
+                business functions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why choose section -->
+      <section class="bg-[#020617] py-24 md:py-32 overflow-hidden relative">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 size-96 bg-accent-cyan/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 size-96 bg-accent-cyan/20 rounded-full blur-[100px]"></div>
+        <div class="max-w-[1280px] mx-auto px-6 md:px-10 relative z-10">
+          <div class="flex flex-col lg:flex-row items-center gap-16 md:gap-20">
+            <div class="w-full lg:w-1/2">
+              <h2 class="text-slate-100 text-4xl md:text-5xl font-black mb-12 leading-tight tracking-tight">
+                Why Choose
+                <span class="text-sky-400">DataBridge</span> Solutions?
+              </h2>
+
+              <ul class="space-y-8">
+                <li class="flex gap-6 items-center group">
+                  <div
+                    class="bg-white/5 p-4 rounded-2xl text-sky-400 shrink-0 border border-white/10 group-hover:bg-white/10 group-hover:scale-105 transition-all">
+                    <span class="material-symbols-outlined text-2xl">
+                      verified_user
+                    </span>
+                  </div>
+                  <span class="text-slate-300 font-medium text-xl md:text-2xl">
+                    Experienced and skilled professionals
+                  </span>
+                </li>
+
+                <li class="flex gap-6 items-center group">
+                  <div
+                    class="bg-white/5 p-4 rounded-2xl text-sky-400 shrink-0 border border-white/10 group-hover:bg-white/10 group-hover:scale-105 transition-all">
+                    <span class="material-symbols-outlined text-3xl">
+                      high_quality
+                    </span>
+                  </div>
+                  <span class="text-slate-300 font-medium text-xl md:text-2xl">
+                    High accuracy and quality assurance
+                  </span>
+                </li>
+
+                <li class="flex gap-6 items-center group">
+                  <div
+                    class="bg-white/5 p-4 rounded-2xl text-sky-400 shrink-0 border border-white/10 group-hover:bg-white/10 group-hover:scale-105 transition-all">
+                    <span class="material-symbols-outlined text-3xl">
+                      security
+                    </span>
+                  </div>
+                  <span class="text-slate-300 font-medium text-xl md:text-2xl">
+                    Secure enterprise data handling
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="w-full lg:w-1/2 flex flex-col gap-10 bg-white/5 backdrop-blur-2xl p-10 md:p-14 rounded-3xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+              <div class="space-y-6">
+                <h3 class="text-white text-3xl md:text-4xl font-black">
+                  Partner with industry leaders.
+                </h3>
+                <p class="text-blue-50 text-lg md:text-xl leading-relaxed opacity-90">
+                  Join growing global businesses that rely on our precision
+                  and operational support for their digital transformation.
+                </p>
+              </div>
+              <div class="flex flex-col sm:flex-row flex-wrap gap-6 mt-4">
+                <button
+                  class="cta-sweep w-full sm:w-auto bg-primary hover:bg-blue-600 hover:scale-[1.05] active:scale-95 text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl shadow-2xl shadow-primary/40 transition-all border border-primary/20">
+                  Get a Quote
+                </button>
+                <a href="{% url 'contact' %}"
+                  class="cta-sweep w-full sm:w-auto inline-flex items-center justify-center bg-white/5 backdrop-blur-md hover:bg-white hover:text-primary text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl border border-white/20 hover:border-white transition-all">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer section -->
+    <footer
+      class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-white/5 pt-20 md:pt-24 pb-12 shrink-0 transition-colors duration-500">
+      <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 md:mb-24">
+          <div class="flex flex-col gap-8">
+            <!-- Logo section -->
+            <div class="flex items-center gap-4 group cursor-pointer shrink-0">
+              <div class="relative flex items-center justify-center size-11">
+                <svg
+                  class="w-full h-full text-primary dark:text-accent-cyan transition-transform duration-500 group-hover:scale-110"
+                  fill="none" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34" stroke="currentColor" stroke-linecap="round"
+                    stroke-width="3.5" />
+                  <path d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34" stroke="url(#logo-grad)" stroke-linecap="round"
+                    stroke-width="3.5" opacity="0.85" />
+                  <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+                  <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+                  <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+                  <defs>
+                    <linearGradient id="logo-grad" x1="22" y1="10" x2="32" y2="34" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#2E7CFF" />
+                      <stop offset="1" stop-color="#00F0FF" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <div class="flex flex-col leading-none">
+                <span class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight">
+                  DataBridge
+                </span>
+                <span class="text-[10px] font-bold text-primary dark:text-accent-cyan tracking-[0.35em] uppercase mt-1">
+                  Solutions
+                </span>
+              </div>
+            </div>
+            <!-- Logo end here -->
+            <p class="text-[#617289] dark:text-gray-400 text-base leading-relaxed font-medium">
+              Leading global provider of high-precision IT and BPO services.
+              Specializing in secure XML conversion and data lifecycle
+              management.
+            </p>
+            <!-- Social Media Icons -->
+            <div class="flex items-center gap-4 pt-2">
+              <a aria-label="LinkedIn" class="social-icon-btn" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                  </path>
+                </svg>
+              </a>
+              <a aria-label="X (Twitter)" class="social-icon-btn" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.482 3.239h-2.19l13.317 17.408z">
+                  </path>
+                </svg>
+              </a>
+              <a aria-label="Facebook" class="social-icon-btn" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z">
+                  </path>
+                </svg>
+              </a>
+              <a aria-label="YouTube" class="social-icon-btn" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                  fill="#e3e3e3">
+                  <path
+                    d="M616-242q-27 1-51.5 1.5t-43.5.5h-41q-71 0-133-2-53-2-104.5-5.5T168-257q-26-7-45-26t-26-45q-6-23-9.5-56T82-447q-2-36-2-73t2-73q2-30 5.5-63t9.5-56q7-26 26-45t45-26q23-6 74.5-9.5T347-798q62-2 133-2t133 2q53 2 104.5 5.5T792-783q26 7 45 26t26 45q6 23 9.5 56t5.5 63q2 36 2 73v17q-19-8-39-12.5t-41-4.5q-83 0-141.5 58.5T600-320q0 21 4 40.5t12 37.5ZM400-400l208-120-208-120v240Zm360 200v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z" />
+                </svg>
+              </a>
+              <a aria-label="Instagram" class="social-icon-btn" href="#">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.376.896.419.419.679.818.896 1.376.163.422.358 1.057.412 2.227.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.376-.419-.419-.818.679-1.376.896-.422.163-1.057.358-2.227.412-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.376-.896-.419-.419-.679-.818-.896-1.376-.163-.422-.358-1.057-.412-2.227-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.376.419-.419.818-.679 1.376-.896.422-.163 1.057-.358 2.227-.412 1.266-.059 1.646-.071 4.85-.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.261-2.911.558-.788.306-1.457.715-2.123 1.381s-1.075 1.335-1.381 2.123c-.297.763-.5 1.634-.558 2.911-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.277.261 2.148.558 2.911.306.788.715 1.457 1.381 2.123s1.335 1.075 2.123 1.381c.763.297 1.634.5 2.911.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.261 2.911-.558.788-.306 1.457-.715 2.123-1.381s1.075-1.335 1.381-2.123c.297-.763.5-1.634.558-2.911.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.261-2.148-.558-2.911-.306-.788-.715-1.457-1.381-2.123s-1.335-1.075-2.123-1.381c-.763-.297-1.634-.5-2.911-.558-1.28-.058-1.688-.072-4.947-.072z">
+                  </path>
+                  <path
+                    d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+              Quick Links
+            </h4>
+            <ul class="flex flex-col gap-4">
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="{% url 'about' %}">About Us</a>
+              </li>
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="{% url 'services' %}">Service Offerings</a>
+              </li>
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="{% url 'casestudy' %}">Case Studies</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-6">
+            <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+              Our Services
+            </h4>
+            <ul class="flex flex-col gap-4">
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="#">XML Conversion</a>
+              </li>
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="#">Data Management</a>
+              </li>
+              <li>
+                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                  href="#">BPO Support</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-6">
+            <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+              Contact Us
+            </h4>
+            <ul class="flex flex-col gap-5">
+              <li class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group">
+                <span
+                  class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300">mail</span>
+                <span class="font-medium">contact@databridge.com</span>
+              </li>
+              <li class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group">
+                <span
+                  class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300">location_on</span>
+                <span class="font-medium">Priyansh Technology Hyderabad, Telangana</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-10 border-t border-gray-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p class="text-sm text-[#617289] dark:text-gray-400 font-medium">
+            © 2026 DataBridge Solutions Inc. All rights reserved.
+          </p>
+          <div class="flex flex-wrap justify-center gap-8">
+            <a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+              href="./assets/terms& conditions/terms-and-conditions-template.pdf">Privacy Policy</a>
+            <a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+              href="./assets/terms& conditions/terms-and-conditions-template.pdf">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu"
+  class="fixed inset-0 z-[100] bg-white/95 dark:bg-[#101822]/95 backdrop-blur-xl transition-all duration-300 translate-x-full lg:hidden flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none">
+  <button onclick="toggleMobileMenu()"
+    class="absolute top-6 right-6 p-2 text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">
+    <span class="material-symbols-outlined text-4xl">close</span>
+  </button>
+
+  <nav class="flex flex-col items-center gap-8">
+    <a href="{% url 'home' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Home</a>
+    <a href="{% url 'about' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">About
+      Us</a>
+    <a href="{% url 'services' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Services</a>
+    <a href="{% url 'industries' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Industries</a>
+    <a href="{% url 'career' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Careers</a>
+    <a href="{% url 'contact' %}" onclick="toggleMobileMenu()"
+      class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Contact</a>
+  </nav>
+
+  <a href="{% url 'contact' %}"
+    class="mt-8 flex items-center justify-center cta-sweep bg-primary hover:bg-primary/90 text-white text-lg font-bold h-14 px-10 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95">
+    Get a Quote
+  </a>
+</div>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-container" class="fixed bottom-6 right-6 z-[95] flex flex-col items-end gap-4">
+  <!-- Chat Window -->
+  <div id="chat-window"
+    class="w-[350px] bg-white dark:bg-[#16202c] rounded-2xl shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden transform transition-all duration-300 origin-bottom-right scale-0 opacity-0 mb-20 pointer-events-none">
+    <!-- Header -->
+    <div class="bg-primary p-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-[18px]">smart_toy</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-sm">DataBridge Support</h3>
+          <p class="text-[10px] text-white/80 flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Online
+          </p>
+        </div>
+      </div>
+      <button onclick="toggleChat()" class="text-white/80 hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+
+    <!-- Messages Area -->
+    <div id="chat-messages"
+      class="h-[350px] overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-200 dark:scrollbar-thumb-gray-700">
+      <!-- Welcome Message -->
+      <div class="flex gap-3">
+        <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+        </div>
+        <div class="bg-gray-100 dark:bg-white/5 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+          <p class="text-sm text-gray-700 dark:text-gray-300">Hi there! 👋 How can we help you today?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20">
+      <form onsubmit="handleChatSubmit(event)" class="flex gap-2">
+        <input id="chat-input" type="text" placeholder="Type a message..."
+          class="flex-1 bg-white dark:bg-[#16202c] border border-gray-200 dark:border-white/10 rounded-full px-4 text-sm focus:outline-none focus:border-primary dark:focus:border-accent-cyan text-[#111418] dark:text-white transition-colors">
+        <button type="submit"
+          class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary/90 transition-colors shadow-lg active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+          <span class="material-symbols-outlined text-[20px] ml-0.5">send</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toggle Button -->
+  <button onclick="toggleChat()"
+    class="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group">
+    <span
+      class="material-symbols-outlined text-3xl transition-transform duration-300 group-hover:rotate-12">chat_bubble</span>
+  </button>
+</div>
+
+<!-- Request Callback Modal -->
+<div id="callback-modal"
+  class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+  <!-- Backdrop -->
+  <div onclick="toggleCallbackModal()" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <!-- Modal Content -->
+  <div
+    class="relative bg-white dark:bg-[#16202c] w-full max-w-md mx-4 p-8 rounded-3xl shadow-2xl border border-gray-100 dark:border-white/10 transform scale-95 transition-all duration-300">
+    <button onclick="toggleCallbackModal()"
+      class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+
+    <div class="text-center mb-6">
+      <div
+        class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary dark:text-accent-cyan">
+        <span class="material-symbols-outlined text-3xl">phone_in_talk</span>
+      </div>
+      <h3 class="text-2xl font-bold text-[#111418] dark:text-white mb-2">Request a Callback</h3>
+      <p class="text-gray-500 dark:text-gray-400 text-sm">Leave your details and we'll call you back within 60 seconds.
+      </p>
+    </div>
+
+    <form onsubmit="handleCallbackSubmit(event)" class="space-y-4">
+      <div>
+        <label
+          class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Name</label>
+        <input type="text" required
+          class="w-full h-12 px-4 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20 text-[#111418] dark:text-white focus:border-primary dark:focus:border-accent-cyan focus:ring-0 outline-none transition-all"
+          placeholder="John Doe">
+      </div>
+      <div>
+        <label class="block text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Phone
+          Number</label>
+        <input type="tel" required
+          class="w-full h-12 px-4 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black/20 text-[#111418] dark:text-white focus:border-primary dark:focus:border-accent-cyan focus:ring-0 outline-none transition-all"
+          placeholder="+1 (555) 000-0000">
+      </div>
+      <button type="submit"
+        class="cta-sweep w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95 transition-all">
+        Call Me Now
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle("dark");
+  }
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('translate-x-full');
+    menu.classList.toggle('opacity-0');
+    menu.classList.toggle('pointer-events-none');
+    document.body.classList.toggle('overflow-hidden');
+  }
+
+  // Chatbot Logic
+  function toggleChat() {
+    const chatWindow = document.getElementById('chat-window');
+
+    // Check if open (has pointer-events-auto)
+    if (chatWindow.classList.contains('pointer-events-auto')) {
+      // Close
+      chatWindow.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+      chatWindow.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
+    } else {
+      // Open
+      chatWindow.classList.remove('scale-0', 'opacity-0', 'pointer-events-none');
+      chatWindow.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
+      // Focus input
+      setTimeout(() => document.getElementById('chat-input').focus(), 300);
+    }
+  }
+
+  function handleChatSubmit(event) {
+    event.preventDefault();
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    const messagesArea = document.getElementById('chat-messages');
+
+    if (!message) return;
+
+    // Add User Message
+    addMessage(message, 'user');
+    input.value = '';
+
+    // Simulate Typing
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'typing-indicator';
+    typingIndicator.className = 'flex gap-3 animate-fade-in-up';
+    typingIndicator.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+           <span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+        </div>
+        <div class="bg-gray-100 dark:bg-white/5 rounded-2xl rounded-tl-none p-4 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+          <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce delay-100"></span>
+          <span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce delay-200"></span>
+        </div>
+    `;
+    messagesArea.appendChild(typingIndicator);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+
+    // Simulate Response
+    setTimeout(() => {
+      typingIndicator.remove();
+      addMessage("Thanks for reaching out! Our support team is currently offline, but you can email us at support@databridge.com for urgent queries.", "bot");
+    }, 1500);
+  }
+
+  function addMessage(text, sender) {
+    const messagesArea = document.getElementById('chat-messages');
+    const div = document.createElement('div');
+
+    if (sender === 'user') {
+      div.className = 'flex gap-3 flex-row-reverse animate-fade-in-up';
+      div.innerHTML = `
+            <div class="bg-primary text-white rounded-2xl rounded-tr-none p-3 max-w-[80%]">
+              <p class="text-sm">${text}</p>
+            </div>
+        `;
+    } else {
+      div.className = 'flex gap-3 animate-fade-in-up';
+      div.innerHTML = `
+            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+               <span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span>
+            </div>
+            <div class="bg-gray-100 dark:bg-white/5 rounded-2xl rounded-tl-none p-3 max-w-[80%]">
+              <p class="text-sm text-gray-700 dark:text-gray-300">${text}</p>
+            </div>
+        `;
+    }
+
+    messagesArea.appendChild(div);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }
+
+  // Callback Modal Logic
+  function toggleCallbackModal() {
+    const modal = document.getElementById('callback-modal');
+    const content = modal.querySelector('div.relative');
+
+    if (modal.classList.contains('pointer-events-none')) {
+      // Open
+      modal.classList.remove('pointer-events-none', 'opacity-0');
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    } else {
+      // Close
+      modal.classList.add('pointer-events-none', 'opacity-0');
+      content.classList.remove('scale-100');
+      content.classList.add('scale-95');
+    }
+  }
+
+  function handleCallbackSubmit(event) {
+    event.preventDefault();
+    const btn = event.target.querySelector('button[type="submit"]');
+    const originalText = btn.innerText;
+
+    // Select inputs securely
+    const nameInput = event.target.querySelector('input[type="text"]');
+    const phoneInput = event.target.querySelector('input[type="tel"]');
+
+    if (!nameInput.value || !phoneInput.value) return;
+
+    // Loading state
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-xl">refresh</span> Calling...';
+    btn.disabled = true;
+
+    // Simulate API call
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      toggleCallbackModal();
+      // Reuse simple alert for now as we haven't ported the full toast system to index.html yet
+      alert(`Thanks ${nameInput.value}! We are connecting you to an agent...`);
+      event.target.reset();
+    }, 1500);
+  }
+</script>
+
+</html>

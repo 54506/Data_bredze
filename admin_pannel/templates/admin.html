@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <!-- paste admin header here -->
+
+  <header class="bg-white border-b shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- LOGO -->
+
+<!-- Logo section -->
+<div class="flex items-center gap-4 group cursor-pointer shrink-0">
+  <!-- SVG Logo -->
+  <div class="relative flex items-center justify-center size-11">
+    <svg
+      class="w-full h-full text-primary transition-transform duration-500 group-hover:scale-110"
+      fill="none"
+      viewBox="0 0 44 44"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="3.5"
+      />
+      <path
+        d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34"
+        stroke="url(#logo-grad)"
+        stroke-linecap="round"
+        stroke-width="3.5"
+        opacity="0.85"
+      />
+      <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+      <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+      <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+      <defs>
+        <linearGradient
+          id="logo-grad"
+          x1="22"
+          y1="10"
+          x2="32"
+          y2="34"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#2E7CFF" />
+          <stop offset="1" stop-color="#00F0FF" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Brand Text -->
+  <div class="flex flex-col leading-none">
+    <span class="text-[#111418] text-xl font-extrabold tracking-tight">
+      DataBridge
+    </span>
+
+    <div class="flex items-center gap-2 mt-1">
+      <span
+        class="text-[10px] font-bold text-primary tracking-[0.35em] uppercase"
+      >
+        Solutions
+      </span>
+
+      <!-- Admin badge -->
+      <span
+        class="text-[10px] px-2 py-0.5 rounded-full
+               bg-gray-100 text-gray-500 font-semibold uppercase tracking-wider"
+      >
+        Admin
+      </span>
+    </div>
+  </div>
+</div>
+<!-- Logo end -->
+
+
+    <!-- NAV -->
+    <nav class="flex items-center gap-6 text-sm font-medium">
+      <a href="{% url 'dashboard' %}" class="hover:text-primary">Dashboard</a>
+      <a href="{% url 'job' %}" class="hover:text-primary">Jobs</a>
+      <a href="{% url 'applications' %}" class="hover:text-primary">Applications</a>
+      <a href="{% url 'contacts' %}" class="hover:text-primary">Contacts</a>
+
+      <button
+        onclick="adminLogout()"
+        class="ml-4 text-red-600 font-semibold"
+      >
+        Logout
+      </button>
+    </nav>
+
+  </div>
+</header>
+
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-7xl mx-auto px-6 py-10">
+
+    <h1>Welcome to Admin Dashboard</h1>
+    <!-- page-specific content -->
+  </main>
+
+  <!-- FOOTER -->
+  <!-- paste admin footer here -->
+    <footer
+        class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-white/5 pt-20 md:pt-24 pb-12 shrink-0 transition-colors duration-500"
+      >
+        <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 md:mb-24"
+          >
+            <div class="flex flex-col gap-8">
+              <!-- Logo section -->
+          <div class="flex items-center gap-4 group cursor-pointer shrink-0">
+            <div class="relative flex items-center justify-center size-11">
+              <svg
+                class="w-full h-full text-primary dark:text-accent-cyan transition-transform duration-500 group-hover:scale-110"
+                fill="none"
+                viewBox="0 0 44 44"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="3.5"
+                />
+                <path
+                  d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34"
+                  stroke="url(#logo-grad)"
+                  stroke-linecap="round"
+                  stroke-width="3.5"
+                  opacity="0.85"
+                />
+                <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+                <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+                <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+                <defs>
+                  <linearGradient
+                    id="logo-grad"
+                    x1="22"
+                    y1="10"
+                    x2="32"
+                    y2="34"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#2E7CFF" />
+                    <stop offset="1" stop-color="#00F0FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <div class="flex flex-col leading-none">
+              <span
+                class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight"
+              >
+                DataBridge
+              </span>
+              <span
+                class="text-[10px] font-bold text-primary dark:text-accent-cyan tracking-[0.35em] uppercase mt-1"
+              >
+                Solutions
+              </span>
+            </div>
+          </div>
+          <!-- Logo end here -->
+              <p
+                class="text-[#617289] dark:text-gray-400 text-base leading-relaxed font-medium"
+              >
+                Leading global provider of high-precision IT and BPO services.
+                Specializing in secure XML conversion and data lifecycle
+                management.
+              </p>
+              <!-- Social Media Icons -->
+              <div class="flex items-center gap-4 pt-2">
+                <a aria-label="LinkedIn" class="social-icon-btn" href="#">
+                  <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    ></path>
+                  </svg>
+                </a>
+                <a aria-label="X (Twitter)" class="social-icon-btn" href="#">
+                  <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.482 3.239h-2.19l13.317 17.408z"
+                    ></path>
+                  </svg>
+                </a>
+                <a aria-label="Facebook" class="social-icon-btn" href="#">
+                  <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                    ></path>
+                  </svg>
+                </a>
+                <a aria-label="YouTube" class="social-icon-btn" href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#e3e3e3"
+                  >
+                    <path
+                      d="M616-242q-27 1-51.5 1.5t-43.5.5h-41q-71 0-133-2-53-2-104.5-5.5T168-257q-26-7-45-26t-26-45q-6-23-9.5-56T82-447q-2-36-2-73t2-73q2-30 5.5-63t9.5-56q7-26 26-45t45-26q23-6 74.5-9.5T347-798q62-2 133-2t133 2q53 2 104.5 5.5T792-783q26 7 45 26t26 45q6 23 9.5 56t5.5 63q2 36 2 73v17q-19-8-39-12.5t-41-4.5q-83 0-141.5 58.5T600-320q0 21 4 40.5t12 37.5ZM400-400l208-120-208-120v240Zm360 200v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"
+                    />
+                  </svg>
+                </a>
+                <a aria-label="Instagram" class="social-icon-btn" href="#">
+                  <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.376.896.419.419.679.818.896 1.376.163.422.358 1.057.412 2.227.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.376-.419.419-.818.679-1.376.896-.422.163-1.057.358-2.227.412-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.17-.054-1.805-.249-2.227-.412-.558-.217-.957-.477-1.376-.896-.419-.419-.679-.818-.896-1.376-.163-.422-.358-1.057-.412-2.227-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.376.419-.419.818-.679 1.376-.896.422-.163 1.057-.358 2.227-.412 1.266-.059 1.646-.071 4.85-.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.261-2.911.558-.788.306-1.457.715-2.123 1.381s-1.075 1.335-1.381 2.123c-.297.763-.5 1.634-.558 2.911-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.277.261 2.148.558 2.911.306.788.715 1.457 1.381 2.123s1.335 1.075 2.123 1.381c.763.297 1.634.5 2.911.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.261 2.911-.558.788-.306 1.457-.715 2.123-1.381s1.075-1.335 1.381-2.123c.297-.763.5-1.634.558-2.911.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.261-2.148-.558-2.911-.306-.788-.715-1.457-1.381-2.123s-1.335-1.075-2.123-1.381c-.763-.297-1.634-.5-2.911-.558-1.28-.058-1.688-.072-4.947-.072z"
+                    ></path>
+                    <path
+                      d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="flex flex-col gap-6">
+              <h4
+                class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white"
+              >
+                Quick Links
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="../aboutUs.html"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="../services.html"
+                    >Service Offerings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="#"
+                    >Case Studies</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-6">
+              <h4
+                class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white"
+              >
+                Our Services
+              </h4>
+              <ul class="flex flex-col gap-4">
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="#"
+                    >XML Conversion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="#"
+                    >Data Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                    href="#"
+                    >BPO Support</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-6">
+              <h4
+                class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white"
+              >
+                Contact Us
+              </h4>
+              <ul class="flex flex-col gap-5">
+                <li
+                  class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300"
+                    >mail</span
+                  >
+                  <span class="font-medium">contact@databridge.com</span>
+                </li>
+                <li
+                  class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300"
+                    >location_on</span
+                  >
+                  <span class="font-medium"
+                    >Priyansh Technology Hyderabad, Telangana</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="pt-10 border-t border-gray-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+          >
+            <p class="text-sm text-[#617289] dark:text-gray-400 font-medium">
+              © 2026 DataBridge Solutions Inc. All rights reserved.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+              <a
+                class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                href="./assets/terms& conditions/terms-and-conditions-template.pdf"
+                >Privacy Policy</a
+              >
+              <a
+                class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                href="./assets/terms& conditions/terms-and-conditions-template.pdf"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+ <script>
+  function adminLogout() {
+    console.log("Admin logout clicked");
+
+    // Clear admin session
+    localStorage.removeItem("adminLoggedIn");
+
+    // Safety: clear everything admin-related
+    localStorage.removeItem("adminUser");
+
+    // Force redirect (no back button)
+    window.location.href = "{% url 'admin-login' %}";
+  }
+</script>
+
+
+</body>
+</html>

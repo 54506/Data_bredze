@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Our Services | DataBridge Solutions
+    </title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#136dec",
+                        "accent-cyan": "#22d3ee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101822",
+                    },
+                    fontFamily: {
+                        display: ["Inter"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-down {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+      .animate-fade-in-up {
+        opacity: 0;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      }
+      .cta-sweep {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .cta-sweep::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 60px;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(34, 211, 238, 0.4),
+          rgba(255, 255, 255, 0.6),
+          rgba(34, 211, 238, 0.4),
+          transparent
+        );
+        transform: skewX(-25deg);
+        animation: buttonSweep 6s infinite ease-in-out;
+        pointer-events: none;
+      }
+      @keyframes buttonSweep {
+        0% { left: -100%; opacity: 0; }
+        5% { opacity: 1; }
+        25% { left: 150%; opacity: 1; }
+        100% { left: 150%; opacity: 0; }
+      }
+      .service-detail-card {
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .dark .service-detail-card {
+        background: #101822; /* background-dark */
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .service-detail-card:hover {
+        transform: translateY(-5px);
+        border-color: #22d3ee;
+        box-shadow: 0 10px 30px -10px rgba(34, 211, 238, 0.3);
+      }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-gray-100 transition-colors duration-500 min-h-screen flex flex-col selection:bg-accent-cyan selection:text-background-dark">
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200 dark:border-white/5 transition-colors duration-500">
+            <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-4">
+                <!-- Logo section -->
+                <a href="./index.html" class="flex items-center gap-4 group cursor-pointer shrink-0">
+                    <div class="relative flex items-center justify-center size-11">
+                        <svg class="w-full h-full text-primary dark:text-accent-cyan transition-transform duration-500 group-hover:scale-110"
+                            fill="none" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34" stroke="currentColor"
+                                stroke-linecap="round" stroke-width="3.5" />
+                            <path d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34" stroke="url(#logo-grad)"
+                                stroke-linecap="round" stroke-width="3.5" opacity="0.85" />
+                            <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+                            <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+                            <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+                            <defs>
+                                <linearGradient id="logo-grad" x1="22" y1="10" x2="32" y2="34"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#2E7CFF" />
+                                    <stop offset="1" stop-color="#00F0FF" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <div class="flex flex-col leading-none">
+                        <span class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight">
+                            DataBridge
+                        </span>
+                        <span
+                            class="text-[10px] font-bold text-primary dark:text-accent-cyan tracking-[0.35em] uppercase mt-1">
+                            Solutions
+                        </span>
+                    </div>
+                </a>
+                <!-- Logo end here -->
+
+                <!-- Nav Bar section -->
+                <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+                                      <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{% url 'home' %}">Home</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="#">About Us</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'services' %}">Services</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'industries' %}">Industries</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{%url 'career' %}">Careers</a>
+          <a class="text-sm font-semibold text-[#111418] dark:text-gray-300 hover:text-primary dark:hover:text-accent-cyan transition-colors"
+            href="{% url 'contact' %}">Contact</a>
+                </nav>
+                <div class="flex items-center gap-4 shrink-0">
+                    <!-- 🌙 Dark Mode Toggle Button -->
+                    <button onclick="toggleDarkMode()"
+                        class="h-10 w-10 flex items-center justify-center rounded-full border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        title="Toggle Dark Mode">
+                        🌙
+                    </button>
+                    <a href="{% url 'contact' %}"
+                        class="hidden sm:flex items-center justify-center cta-sweep bg-primary hover:bg-primary/90 text-white text-sm font-bold h-11 px-6 rounded-lg transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95">
+                        Get a Quote
+                    </a>
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden p-2 text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors"
+                        onclick="toggleMobileMenu()">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+         {% load static %}
+        <main class="flex-1">
+            <!-- Hero Section -->
+            <section class="relative py-20 lg:py-28 overflow-hidden bg-background-dark">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                    <img src="{% static 'images/g2.jpeg' %}" alt="Services Hero"
+                        class="w-full h-full object-cover opacity-20 transform scale-105">
+                </div>
+                <div
+                    class="absolute inset-0 z-10 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent">
+                </div>
+
+                <div class="relative z-20 max-w-[1280px] mx-auto px-6 md:px-10 text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 animate-fade-in-up">
+                        Comprehensive <span class="text-accent-cyan">Data Solutions</span>
+                    </h1>
+                    <p
+                        class="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100">
+                        From complex XML conversions to secure data management, we provide the technical backbone for
+                        your business operations.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Services List -->
+            <section class="py-20 bg-background-light dark:bg-background-dark">
+                <div class="max-w-[1280px] mx-auto px-6 md:px-10 space-y-24">
+
+                    <!-- Section Header -->
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold dark:text-white mb-4">Specialized Expertise</h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg">Comprehensive data solutions tailored to
+                            streamline your business workflow and maximize ROI.</p>
+                    </div>
+
+                    <!-- Service 1: XML Conversion & Processing (Text Left, Image Right) -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-primary dark:text-accent-cyan">code</span>
+                                <h2 class="text-3xl font-bold dark:text-white">XML Conversion & Processing</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                                We provide end-to-end XML conversion and processing services to transform complex
+                                content into structured, validated, and system-ready XML formats.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    DTD, XSD, and schema-compliant XML
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Multi-level validation and QA
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    High accuracy with faster turnaround
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Scalable workflows for large volumes
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-1 lg:order-2 service-detail-card p-2 rounded-2xl">
+                            <img src="{% static 'images/g5.jpeg' %}" alt="XML Processing"
+                                class="rounded-xl w-full h-[350px] object-cover filter contrast-125 hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Data Entry & Data Management (Image Left, Text Right) -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="service-detail-card p-2 rounded-2xl">
+                            <img src="{% static 'images/g3.jpeg' %}" alt="Data Management"
+                                class="rounded-xl w-full h-[350px] object-cover filter contrast-125 hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-primary dark:text-accent-cyan">keyboard</span>
+                                <h2 class="text-3xl font-bold dark:text-white">Data Entry & Data Management</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                                Our data entry and management services help organizations digitize, organize, and
+                                maintain high-quality data across multiple formats and platforms.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Structured & unstructured data handling
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Secure data processing standards
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Data cleansing and normalization
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Reduced operational overhead
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Document Digitization (Text Left, Image Right) -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-primary dark:text-accent-cyan">scanner</span>
+                                <h2 class="text-3xl font-bold dark:text-white">Document Digitization</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                                We convert physical documents into digital, searchable formats using secure scanning,
+                                indexing, and archival processes.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    High-resolution document scanning
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    OCR-enabled searchable files
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Secure digital archiving
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Improved access and retrieval
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-1 lg:order-2 service-detail-card p-2 rounded-2xl">
+                            <img src="{% static 'images/g1.jpeg' %}" alt="Digitization"
+                                class="rounded-xl w-full h-[350px] object-cover filter contrast-125 hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Data Validation & Quality Check (Image Left, Text Right) -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="service-detail-card p-2 rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                                alt="Data Quality"
+                                class="rounded-xl w-full h-[350px] object-cover filter contrast-125 hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-primary dark:text-accent-cyan">verified</span>
+                                <h2 class="text-3xl font-bold dark:text-white">Data Validation & Quality Check</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                                Our quality assurance processes ensure data accuracy, consistency, and reliability
+                                through rigorous multi-level validation checks.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Error detection and correction
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Consistency and integrity checks
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Automated & manual validation
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Enterprise-grade QA
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Service 5: IT & BPO Support Services (Text Left, Image Right) -->
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span
+                                    class="material-symbols-outlined text-4xl text-primary dark:text-accent-cyan">support_agent</span>
+                                <h2 class="text-3xl font-bold dark:text-white">IT & BPO Support Services</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                                We offer cost-effective IT and BPO services that help organizations streamline
+                                operations, reduce costs, and focus on core business goals.
+                            </p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    24/7 operational support
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Process optimization
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Scalable service models
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700 dark:text-gray-300">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-cyan text-sm">circle</span>
+                                    Improved business efficiency
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-1 lg:order-2 service-detail-card p-2 rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80"
+                                alt="BPO Support"
+                                class="rounded-xl w-full h-[350px] object-cover filter contrast-125 hover:scale-[1.01] transition-transform duration-500">
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 bg-primary dark:bg-blue-900/20 border-t border-white/10">
+                <div class="max-w-4xl mx-auto px-6 text-center">
+                    <h2 class="text-3xl font-black text-white mb-6">Ready to Optimize Your Data Workflow?</h2>
+                    <p class="text-blue-100 text-lg mb-8">Contact our experts today for a free consultation and pilot
+                        project.</p>
+                    <a href="{% url 'contact' %}"
+                        class="inline-block bg-white text-primary font-bold py-4 px-10 rounded-xl hover:scale-105 transition-transform shadow-xl">
+                        Get a Free Quote
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer (Same as index) -->
+        <footer
+            class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-white/5 pt-20 md:pt-24 pb-12 shrink-0 transition-colors duration-500">
+            <div class="max-w-[1280px] mx-auto px-6 md:px-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 md:mb-24">
+                    <div class="flex flex-col gap-8">
+                        <!-- Logo section -->
+                        <a href="{% url 'home' %}" class="flex items-center gap-4 group cursor-pointer shrink-0">
+                            <div class="relative flex items-center justify-center size-11">
+                                <svg class="w-full h-full text-primary dark:text-accent-cyan transition-transform duration-500 group-hover:scale-110"
+                                    fill="none" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 10C12 10 22 10 22 22C22 34 12 34 12 34" stroke="currentColor"
+                                        stroke-linecap="round" stroke-width="3.5" />
+                                    <path d="M22 10C22 10 32 10 32 22C32 34 22 34 22 34" stroke="url(#logo-grad)"
+                                        stroke-linecap="round" stroke-width="3.5" opacity="0.85" />
+                                    <circle cx="12" cy="10" r="2.5" fill="currentColor" />
+                                    <circle cx="32" cy="22" r="2.5" fill="url(#logo-grad)" />
+                                    <circle cx="12" cy="34" r="2.5" fill="currentColor" />
+
+                                    <defs>
+                                        <linearGradient id="logo-grad" x1="22" y1="10" x2="32" y2="34"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#2E7CFF" />
+                                            <stop offset="1" stop-color="#00F0FF" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            <div class="flex flex-col leading-none">
+                                <span class="text-[#111418] dark:text-white text-xl font-extrabold tracking-tight">
+                                    DataBridge
+                                </span>
+                                <span
+                                    class="text-[10px] font-bold text-primary dark:text-accent-cyan tracking-[0.35em] uppercase mt-1">
+                                    Solutions
+                                </span>
+                            </div>
+                        </a>
+                        <!-- Logo end here -->
+                        <p class="text-[#617289] dark:text-gray-400 text-base leading-relaxed font-medium">
+                            Leading global provider of high-precision IT and BPO services.
+                            Specializing in secure XML conversion and data lifecycle
+                            management.
+                        </p>
+                        <!-- Social Media Icons -->
+                        <div class="flex items-center gap-4 pt-2">
+                            <a aria-label="LinkedIn" class="social-icon-btn" href="#">
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a aria-label="X (Twitter)" class="social-icon-btn" href="#">
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.482 3.239h-2.19l13.317 17.408z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a aria-label="Facebook" class="social-icon-btn" href="#">
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a aria-label="YouTube" class="social-icon-btn" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#e3e3e3">
+                                    <path
+                                        d="M616-242q-27 1-51.5 1.5t-43.5.5h-41q-71 0-133-2-53-2-104.5-5.5T168-257q-26-7-45-26t-26-45q-6-23-9.5-56T82-447q-2-36-2-73t2-73q2-30 5.5-63t9.5-56q7-26 26-45t45-26q23-6 74.5-9.5T347-798q62-2 133-2t133 2q53 2 104.5 5.5T792-783q26 7 45 26t26 45q6 23 9.5 56t5.5 63q2 36 2 73v17q-19-8-39-12.5t-41-4.5q-83 0-141.5 58.5T600-320q0 21 4 40.5t12 37.5ZM400-400l208-120-208-120v240Zm360 200v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z" />
+                                </svg>
+                            </a>
+                            <a aria-label="Instagram" class="social-icon-btn" href="#">
+                                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.412.558.217.957.477 1.376.896.419.419.679.818.896 1.376.163.422.358 1.057.412 2.227.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.054 1.17-.249 1.805-.412 2.227-.217.558-.477.957-.896 1.376-.419-.419-.818.679-1.376.896-.419-.419-.679-.818-.896-1.376-.163-.422-.358-1.057-.412-2.227-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.054-1.17.249-1.805.412-2.227.217-.558.477-.957.896-1.376.419-.419.818-.679 1.376-.896.422-.163 1.057-.358 2.227-.412 1.266-.059 1.646-.071 4.85-.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.261-2.911.558-.788.306-1.457.715-2.123 1.381s-1.075 1.335-1.381 2.123c-.297.763-.5 1.634-.558 2.911-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.058 1.277.261 2.148.558 2.911.306.788.715 1.457 1.381 2.123s1.335 1.075 2.123 1.381c.763.297 1.634.5 2.911.558 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.261 2.911-.558.788-.306 1.457-.715 2.123-1.381s1.075-1.335 1.381-2.123c.297-.763.5-1.634.558-2.911.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.261-2.148-.558-2.911-.306-.788-.715-1.457-1.381-2.123s-1.335-1.075-2.123-1.381c-.763-.297-1.634-.5-2.911-.558-1.28-.058-1.688-.072-4.947-.072z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+                            Quick Links
+                        </h4>
+                        <ul class="flex flex-col gap-4">
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="{% url 'about' %}">About Us</a>
+                            </li>
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="{% url 'services' %}">Service Offerings</a>
+                            </li>
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="{%url 'casestudy' %}">Case Studies</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+                            Our Services
+                        </h4>
+                        <ul class="flex flex-col gap-4">
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="#">XML Conversion</a>
+                            </li>
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="#">Data Management</a>
+                            </li>
+                            <li>
+                                <a class="text-base text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                                    href="#">BPO Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <h4 class="text-sm font-black uppercase tracking-[0.2em] text-[#111418] dark:text-white">
+                            Contact Us
+                        </h4>
+                        <ul class="flex flex-col gap-5">
+                            <li class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group">
+                                <span
+                                    class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300">mail</span>
+                                <span class="font-medium">contact@databridge.com</span>
+                            </li>
+                            <li class="flex gap-4 text-base text-[#617289] dark:text-gray-400 group">
+                                <span
+                                    class="material-symbols-outlined text-primary dark:text-accent-cyan group-hover:scale-125 transition-transform duration-300">location_on</span>
+                                <span class="font-medium">Priyansh Technology Hyderabad, Telangana</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="pt-10 border-t border-gray-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p class="text-sm text-[#617289] dark:text-gray-400 font-medium">
+                        © 2026 DataBridge Solutions Inc. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                            href="./assets/terms& conditions/terms-and-conditions-template.pdf">Privacy Policy</a>
+                        <a class="text-sm text-[#617289] dark:text-gray-400 hover:text-primary dark:hover:text-accent-cyan transition-colors font-medium"
+                            href="./assets/terms& conditions/terms-and-conditions-template.pdf">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[100] bg-white/95 dark:bg-[#101822]/95 backdrop-blur-xl transition-all duration-300 translate-x-full lg:hidden flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none">
+        <button onclick="toggleMobileMenu()"
+            class="absolute top-6 right-6 p-2 text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+
+        <nav class="flex flex-col items-center gap-8">
+            <a href="{%url 'home' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Home</a>
+            <a href="{%url 'about' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">About
+                Us</a>
+            <a href="{%url 'services' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Services</a>
+            <a href="{%url 'industries' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Industries</a>
+            <a href="{%url 'career' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Careers</a>
+            <a href="{%url 'contact' %}" onclick="toggleMobileMenu()"
+                class="text-3xl font-bold text-[#111418] dark:text-white hover:text-primary dark:hover:text-accent-cyan transition-colors">Contact</a>
+        </nav>
+
+        <button
+            class="mt-8 cta-sweep bg-primary hover:bg-primary/90 text-white text-lg font-bold h-14 px-10 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-95">
+            Get a Quote
+        </button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle("dark");
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        }
+    </script>
+</body>
+
+</html>

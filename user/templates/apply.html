@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply | DataBridge Careers</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: { primary: "#136dec" }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body
+  class="font-display min-h-screen flex items-center justify-center
+         bg-cover bg-center bg-no-repeat relative px-4"
+  style="
+    background-image:
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
+      url('./assets/images/LOGIN.jpeg');
+  "
+>
+
+  <!-- APPLICATION CARD -->
+  <section
+    id="applySection"
+    class="w-full max-w-[640px]
+           bg-white/90
+           backdrop-blur-xl
+           p-8 sm:p-10
+           rounded-2xl
+           shadow-2xl
+           border border-white/20
+           animate-fade-in"
+  >
+
+    <!-- HEADER -->
+    <h3 class="text-3xl font-bold mb-2 text-center text-gray-900">
+      Job <span class="text-primary">Application</span>
+    </h3>
+    <p class="text-sm text-center text-gray-500 mb-8">
+      Fill in your details to apply for {{job.title}}
+    </p>
+
+    <!-- FORM -->
+    <form class="flex flex-col gap-5" method="post"enctype="multipart/form-data">
+        {% csrf_token %}
+
+      <!-- FULL NAME -->
+      <div>
+        <label class="text-sm font-medium mb-1 block text-gray-700">
+          Full Name
+        </label>
+        <input
+        name="name"
+          class="h-11 w-full px-4 rounded-lg border border-gray-300
+                 focus:outline-none focus:ring-2 focus:ring-primary/60 transition"
+          placeholder="John Doe"
+          required
+        />
+      </div>
+
+      <!-- EMAIL -->
+      <div>
+        <label class="text-sm font-medium mb-1 block text-gray-700">
+          Email Address
+        </label>
+        <input
+          type="email"
+          name="email"
+          class="h-11 w-full px-4 rounded-lg border border-gray-300
+                 focus:outline-none focus:ring-2 focus:ring-primary/60 transition"
+          placeholder="you@example.com"
+          required
+        />
+      </div>
+
+
+
+ 
+
+      <!-- RESUME -->
+      <div>
+        <label class="text-sm font-medium mb-1 block text-gray-700">
+          Upload Resume
+        </label>
+        <input
+          type="file"
+          name="resume"
+          required
+          class="block w-full text-sm text-gray-600
+                 file:mr-4 file:py-2 file:px-4
+                 file:rounded-lg file:border-0
+                 file:bg-primary file:text-white
+                 hover:file:bg-primary/90 transition"
+        />
+      </div>
+
+      <!-- SUBMIT -->
+      <button
+        type="submit"
+        class="h-12 mt-2
+               bg-primary
+               text-white
+               font-bold
+               rounded-lg
+               tracking-wide
+               hover:bg-primary/90
+               active:scale-[0.98]
+               transition-all duration-200"
+      >
+        Submit Application
+      </button>
+
+    </form>
+  </section>
+
+
+
+
+  <!-- FADE ANIMATION -->
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out;
+    }
+  </style>
+
+</body>
+
+</html>

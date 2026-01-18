@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Job | DataBridge Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#136dec",
+            bgdark: "#101822",
+            muted: "#9da8b9"
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bgdark text-white font-display min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="border-b border-white/10 px-8 py-4 bg-bgdark/80 backdrop-blur">
+    <h1 class="text-lg font-bold">Edit Job</h1>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 flex justify-center p-8">
+    <form method="post"
+          class="w-full max-w-3xl bg-[#1a1f27] border border-white/10 rounded-xl p-6 space-y-5">
+      {% csrf_token %}
+
+      <div>
+        <label class="block mb-1 text-sm">Job Title</label>
+        <input type="text" name="title" value="{{ job.title }}" required
+               class="w-full h-11 bg-[#282f39] rounded-lg px-4 focus:ring-2 focus:ring-primary">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Job Skills</label>
+        <input type="text" name="skills" value="{{ job.skills }}" required
+               class="w-full h-11 bg-[#282f39] rounded-lg px-4 focus:ring-2 focus:ring-primary">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Experience (Years)</label>
+        <input type="text" name="experience" value="{{ job.experience }}" required
+               class="w-full h-11 bg-[#282f39] rounded-lg px-4 focus:ring-2 focus:ring-primary">
+      </div>
+
+      <div>
+        <label class="block mb-1 text-sm">Location</label>
+        <input type="text" name="location" value="{{ job.location }}" required
+               class="w-full h-11 bg-[#282f39] rounded-lg px-4 focus:ring-2 focus:ring-primary">
+      </div>
+
+      <div class="flex items-center gap-3">
+        <input type="checkbox" name="is_active"
+               class="rounded bg-[#282f39] border-white/20"
+               {% if job.is_active %}checked{% endif %}>
+        <label class="text-sm">Active</label>
+      </div>
+
+      <div class="flex gap-4 pt-4">
+        <button type="submit"
+                class="bg-primary hover:bg-primary/80 px-6 py-2 rounded-lg font-semibold">
+          Update Job
+        </button>
+
+        <a href="{% url 'job' %}"
+           class="px-6 py-2 rounded-lg border border-white/20 hover:bg-white/5">
+          Cancel
+        </a>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 text-center text-muted text-sm py-4">
+    © 2026 DataBridge Admin
+  </footer>
+
+</body>
+</html>
