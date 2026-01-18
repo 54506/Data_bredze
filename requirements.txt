@@ -15,7 +15,7 @@ pillow==11.3.0
 psycopg==3.2.9
 psycopg2==2.9.10
 PyAudio==0.2.14
-pypiwin32==223
+pypiwin32==310
 pyttsx3==2.98
 pywin32==310
 requests==2.32.3

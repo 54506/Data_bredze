@@ -24,7 +24,7 @@ def delete_contact(request, query_id):
     if request.method == "POST":
         query = get_object_or_404(ContactQuery, id=query_id)
         query.delete()
-        messages.success(request, "Message deleted successfully")
+        # messages.success(request, "Message deleted successfully")
     return redirect("contacts")
 
 def jobs(request):
