@@ -1,22 +1,9 @@
-
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-
-    <p>
-    Already registered?
-    <a href="{% url 'login' %}?next={{ request.GET.next }}">Login</a>
-</p>
-</form>
-
-
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | DataBridge Careers</title>
+  <title>Register | DataBridge</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
@@ -24,13 +11,10 @@
 
   <script>
     tailwind.config = {
-      darkMode: "class",
       theme: {
         extend: {
           colors: {
             primary: "#136dec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101822"
           },
           fontFamily: {
             display: ["Inter"]
@@ -39,6 +23,49 @@
       }
     };
   </script>
+
+  <!-- 🔧 STYLE DJANGO form.as_p OUTPUT -->
+  <style>
+    form p {
+      margin-bottom: 1rem;
+    }
+
+    form label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #374151;
+    }
+
+    form input {
+      width: 100%;
+      height: 44px;
+      padding: 0 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    form input:focus {
+      border-color: #136dec;
+      box-shadow: 0 0 0 2px rgba(19, 109, 236, 0.3);
+    }
+
+    .helptext {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    .errorlist {
+      color: #dc2626;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+  </style>
 </head>
 
 <body
@@ -47,128 +74,50 @@
   style="
     background-image:
       linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.75)),
-      url('./assets/images/LOGIN.jpeg');
+      url('/static/images/LOGIN.jpeg');
   "
 >
 
-  <!-- LOGIN CARD -->
+  <!-- REGISTER CARD -->
   <div
     class="w-full max-w-md
-           bg-white/90 dark:bg-[#111418]/90
+           bg-white/90
            backdrop-blur-xl
            p-8 sm:p-10
            rounded-2xl
-           shadow-2xl
-           border border-white/20
-           animate-fade-in"
+           shadow-2xl"
   >
 
-    <!-- HEADER -->
-    <h1 class="text-3xl font-bold text-center mb-2 text-gray-900 dark:text-white">
+    <h1 class="text-3xl font-bold text-center mb-2">
       Welcome to <span class="text-primary">DataBridge</span>
     </h1>
-    <p class="text-sm text-center text-gray-500 dark:text-gray-400 mb-8">
+    <p class="text-sm text-center text-gray-500 mb-8">
       Register here new user
     </p>
 
-    <!-- LOGIN FORM -->
-    <form id="loginForm" class="space-y-5" method="post">
-        {% csrf_token %}
-        
-    {{ form.as_p }}
- 
+    <!-- DJANGO REGISTER FORM -->
+    <form method="post" class="space-y-1">
+      {% csrf_token %}
+      {{ form.as_p }}
 
-      <!-- EMAIL -->
-      <div>
-        <label class="text-sm font-medium mb-1 block text-gray-700 dark:text-gray-300">
-          Email address
-        </label>
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="you@example.com"
-          class="w-full h-11 px-4 rounded-lg border
-                 bg-white dark:bg-[#101822]
-                 text-gray-900 dark:text-white
-                 border-gray-300 dark:border-[#2a3038]
-                 focus:outline-none
-                 focus:ring-2 focus:ring-primary/60
-                 transition"
-        />
-      </div>
-
-     
-
-      <!-- LOGIN BUTTON -->
       <button
         type="submit"
-        class="w-full h-11
-               bg-primary
-               text-white
-               rounded-lg
-               font-semibold
-               tracking-wide
+        class="w-full h-11 mt-4
+               bg-primary text-white
+               rounded-lg font-semibold
                hover:bg-primary/90
-               active:scale-[0.98]
-               transition-all duration-200"
+               transition"
       >
         Register
       </button>
 
-    <p>
-    Already registered?
-    <a href="{% url 'login' %}?next={{ request.GET.next }}">Login</a>
-</p>
+      <p class="text-sm text-center mt-4">
+        Already registered?
+        <a href="{% url 'login' %}" class="text-primary font-medium">Login</a>
+      </p>
     </form>
 
-    
-
- <script>
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // 🔐 mark user logged in
-    localStorage.setItem("isLoggedIn", "true");
-
-    // 👤 TEMP: store user info (until backend exists)
-    const emailInput = document.querySelector('input[type="email"]').value;
-    const nameFromEmail = emailInput.split("@")[0];
-
-    localStorage.setItem("userEmail", emailInput);
-    localStorage.setItem("userName", nameFromEmail);
-
-    // 🎯 redirect logic
-    const intent = localStorage.getItem("loginIntent");
-
-    if (intent === "account") {
-      localStorage.setItem("toastMsg", "Login successful");
-      window.location.href = "careers.html";
-    } else if (intent === "apply") {
-      window.location.href = "apply.html";
-    } else {
-      window.location.href = "careers.html";
-    }
-
-    localStorage.removeItem("loginIntent");
-  });
-</script>
-
-
-
-  <!-- SIMPLE FADE ANIMATION -->
-  <style>
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-      animation: fade-in 0.6s ease-out;
-    }
-  </style>
+  </div>
 
 </body>
-
 </html>
-
-
