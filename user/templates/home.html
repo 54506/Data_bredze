@@ -446,14 +446,16 @@
             </p>
             <div
               class="flex flex-col sm:flex-row gap-5 md:gap-8 justify-center items-center mt-10 lg:mt-12 animate-pop-in">
-              <button onclick="toggleCallbackModal()"
+              <a href="{%  url 'services' %}">
+              <button 
                 class="flex items-center justify-center cta-sweep w-full sm:w-auto bg-primary hover:bg-blue-600 hover:scale-[1.05] active:scale-95 text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl shadow-2xl shadow-primary/40 transition-all border border-primary/20">
-                Request Callback
+                Explore Solution
               </button>
-              <a href="{%  url 'contact' %}">
+              </a>
+              <a href="{%  url 'about' %}">
                 <button
                   class="cta-sweep w-full sm:w-auto bg-white/5 backdrop-blur-md hover:bg-white hover:text-primary text-white text-lg font-bold h-16 lg:h-18 px-10 lg:px-12 rounded-xl border border-white/20 hover:border-white transition-all">
-                  Contact Us
+                  Our Mission
                 </button>
               </a>
             </div>
